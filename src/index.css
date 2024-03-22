@@ -20,3 +20,7 @@
   --light-blue: #dbeefe;
   --cream: #fffbf3;
 }
+
+body {
+  margin: 0;
+}
