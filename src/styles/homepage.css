@@ -1,3 +1,10 @@
+/* Homepage */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Hero section */
 .hero-container {
   width: 100%;
@@ -12,7 +19,7 @@
 }
 
 .hero-content {
-  width: 80%;
+  width: 78%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +41,12 @@
 }
 
 /* Highlights */
+.highlight-header {
+  text-align: left;
+  width: 78%;
+  margin-top: 3rem;
+}
+
 .highlights-wrapper {
   display: flex;
   justify-content: center;
@@ -42,9 +55,9 @@
 }
 
 .highlights-container {
-  width: 80%;
+  width: 77vw;
   display: flex;
-  flex-direction: rows;
+  flex-direction: row;
   flex-wrap: nowrap;
   gap: 1.5rem;
   overflow-x: auto;
@@ -73,4 +86,75 @@
 
 .card-description {
   font-size: 0.85rem !important;
+}
+
+/* Story or content section */
+.content-section-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+  margin-top: 3rem;
+  background-color: var(--light-blue);
+}
+
+.content-section-container {
+  width: 78%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-section-img {
+  height: 30rem;
+  width: 30rem;
+  object-fit: cover;
+}
+
+.content-section-text {
+  width: 40%;
+  text-align: left;
+}
+
+/* About Us */
+.about-us-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us-container {
+  width: 78%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-us-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: start;
+}
+
+.about-header {
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+.about-description {
+  margin-top: 1rem;
+  width: 85%;
+}
+
+.about-img {
+  height: 35rem;
+  width: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }

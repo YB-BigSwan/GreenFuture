@@ -12,6 +12,7 @@ import Videos from "./pages/Videos";
 import Volunteer from "./pages/Volunteer";
 import Workshops from "./pages/Worshops";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/workshops" element={<Workshops />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </>
