@@ -1,5 +1,7 @@
+import "../styles/homepage.css";
+
 function Homepage() {
-  return <div>test</div>;
+  return <div className="homepage-container">Homepage</div>;
 }
 
 export default Homepage;
