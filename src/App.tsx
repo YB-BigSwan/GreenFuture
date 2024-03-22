@@ -11,6 +11,7 @@ import UniversityPartners from "./pages/UniversityPartners";
 import Videos from "./pages/Videos";
 import Volunteer from "./pages/Volunteer";
 import Workshops from "./pages/Worshops";
+import NavBar from "./components/NavBar";
 
 import "./App.css";
 
@@ -18,20 +19,26 @@ function App() {
   return (
     <>
       <Router basename="/GreenFuture">
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/donations" element={<Donations />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/petitions" element={<Petitions />} />
-          <Route path="/start_petition" element={<StartPetition />} />
-          <Route path="/university_partners" element={<UniversityPartners />} />
-          <Route path="/videos" element={<Videos />} />
-          <Route path="/volunteer" element={<Volunteer />} />
-          <Route path="/workshops" element={<Workshops />} />
-        </Routes>
+        <div>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/donations" element={<Donations />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/petitions" element={<Petitions />} />
+            <Route path="/start_petition" element={<StartPetition />} />
+            <Route
+              path="/university_partners"
+              element={<UniversityPartners />}
+            />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/volunteer" element={<Volunteer />} />
+            <Route path="/workshops" element={<Workshops />} />
+          </Routes>
+        </div>
       </Router>
     </>
   );
