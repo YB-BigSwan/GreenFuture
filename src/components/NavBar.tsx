@@ -66,62 +66,114 @@ const NavBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <div className="nav-links">
-        <NavLink to="/" className="home-link" activeClassName="active">
+        <NavLink
+          to="/"
+          className="home-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Home
         </NavLink>
 
         <p className="nav-category">Community</p>
-        <NavLink to="/about" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/about"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           About
         </NavLink>
 
-        <NavLink to="/events" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/events"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Events
         </NavLink>
 
-        <NavLink to="/petitions" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/petitions"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Petitions
         </NavLink>
 
-        <NavLink to="/volunteer" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/volunteer"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Volunteer
         </NavLink>
 
-        <NavLink to="/partners" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/partners"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Partners
         </NavLink>
 
         <p className="nav-category">Education</p>
-        <NavLink to="/videos" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/videos"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Videos
         </NavLink>
 
-        <NavLink to="/workshops" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/workshops"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Workshops
         </NavLink>
 
         <NavLink
           to="/university_partners"
           className="nav-link"
+          // @ts-expect-error activeClassName
           activeClassName="active"
         >
           University Partners
         </NavLink>
 
         <p className="nav-category">Get Involved</p>
-        <NavLink to="/contact" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/contact"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Contact
         </NavLink>
 
         <NavLink
           to="/start_petition"
           className="nav-link"
+          // @ts-expect-error activeClassName
           activeClassName="active"
         >
           Start Petition
         </NavLink>
 
-        <NavLink to="/donations" className="nav-link" activeClassName="active">
+        <NavLink
+          to="/donations"
+          className="nav-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
           Donations
         </NavLink>
       </div>
