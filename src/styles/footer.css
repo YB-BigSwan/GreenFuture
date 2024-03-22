@@ -1,0 +1,41 @@
+.footer-wrapper {
+  width: 100%;
+  margin-top: 5rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-green);
+}
+
+.footer-container {
+  width: 78%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.list-category {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.footer-list-item {
+  font-size: 0.85rem;
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-left: -2.4rem;
+}
