@@ -56,6 +56,7 @@ const NavBar = () => {
     };
 
   // Basic templating for the MUI drawer list
+
   const list = (anchor: Anchor) => (
     <Box
       ref={drawerRef}

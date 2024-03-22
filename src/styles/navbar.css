@@ -1,3 +1,7 @@
+* {
+  transition: 0.2s ease;
+}
+
 /* Navbar styles */
 .nav-wrapper {
   width: 100%;
@@ -6,6 +10,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--light-green);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-bar {
@@ -23,7 +28,7 @@
 
 .burger {
   color: var(--black);
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .burger:active {
@@ -44,6 +49,17 @@
   color: var(--black);
   font-size: 1.7rem;
   font-weight: 600;
+  margin-bottom: 0.7rem;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+}
+
+.nav-category {
+  border-bottom: 2px solid var(--black);
 }
 
 .nav-link {
@@ -51,4 +67,15 @@
   text-decoration: none;
   font-size: 1.2rem;
   margin: 0.2rem 0;
+}
+
+.nav-link:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+}
+
+.nav-link.active,
+.home-link.active {
+  color: var(--dark-green);
+  font-weight: 600;
 }
