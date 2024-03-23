@@ -159,14 +159,14 @@ const NavBar = () => {
           Contact
         </NavLink>
 
-        <NavLink
+        {/* <NavLink
           to="/start_petition"
           className="nav-link"
           // @ts-expect-error activeClassName
           activeClassName="active"
         >
           Start Petition
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           to="/donations"
