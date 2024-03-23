@@ -13,6 +13,19 @@ const NavBar = () => {
     right: false,
   });
 
+  let prevScrollpos = window.scrollY;
+  window.onscroll = () => {
+    const currentScrollpos = window.scrollY;
+    if (prevScrollpos > currentScrollpos) {
+      // @ts-expect-error possible null
+      document.getElementById("nav-wrapper").style.top = "0";
+    } else {
+      // @ts-expect-error possible null
+      document.getElementById("nav-wrapper").style.top = "-10rem";
+    }
+    prevScrollpos = currentScrollpos;
+  };
+
   // MUI drawer does not natively support onClickAway or onClickOutside so we have to create our own logic
   const drawerRef = useRef(null);
   const useOnClickOutside = (
@@ -190,7 +203,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="nav-wrapper">
+    <div id="nav-wrapper">
       <div className="nav-bar">
         <NavLink to="/" className="logo">
           <img className="nav-logo" src={NavLogo} alt="GreenFuture logo" />
