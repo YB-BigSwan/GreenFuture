@@ -1,5 +1,4 @@
 declare const google: any; 
-declare const error: any; 
 
 import React, { useEffect, useState } from 'react';
 import "../styles/login.css";
@@ -10,35 +9,33 @@ const Login: React.FC = () => {
     useEffect(() => {
         const handleCredentialResponse = (response: any) => {
             console.log("Encoded JWT ID token: " + response.credential);
-            const decodedToken = JSON.parse(atob(response.credential.split('.')[1])); 
-            console.log('Decoded Token:', decodedToken);
 
             verifyToken(response.credential);
         };
 
         const verifyToken = async (token: string) => {
             try {
-                const response = await fetch('/api/verify-token', {
+                const response = await fetch('http://localhost:3001/api/verify-token', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ token })
                 });
+                const data = await response.json(); // Moved this line inside the try block
                 if (response.ok) {
-                    const data = await response.json();
                     const { name } = data;
-                    setUserName(name);
+                    setUserName(name); // Update the state to reflect the user's name
                 } else {
-                    console.error('Error verifying token:', response.statusText);
-                    
+                    console.error('Error verifying token:', data.message); // Log backend provided message
+                    setUserName(''); // Reset username if there is an error
                 }
             } catch (error) {
-                console.error('Error verifying token:');
-                
+                console.error('Error verifying token:', error);
+                setUserName(''); // Reset username on fetch error
             }
         };
-
+        
         // Initialize the Google Identity Services library
         window.onload = () => {
             if (typeof google !== 'undefined') {
