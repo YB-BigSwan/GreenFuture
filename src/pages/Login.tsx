@@ -1,78 +1,68 @@
-import React from 'react';
+declare const google: any; 
+declare const error: any; 
+
+import React, { useEffect, useState } from 'react';
 import "../styles/login.css";
 
-interface GoogleUserProfile {
-    getId(): string;
-    getName(): string;
-    getImageUrl(): string;
-    getEmail(): string;
-}
-
-interface GoogleUser {
-    getBasicProfile(): GoogleUserProfile;
-    getAuthResponse(): { id_token: string };
-}
-
-interface BackendResponse {
-    success: boolean;
-    message: string;
-}
-
 const Login: React.FC = () => {
-    const handleLogin = async (googleUser: GoogleUser) => {
-        const profile = googleUser.getBasicProfile();
-        console.log('Token: ' + googleUser.getAuthResponse().id_token);
-        console.log('Name: ' + profile.getName());
-        console.log('Email: ' + profile.getEmail());
+    const [userName, setUserName] = useState('');
 
-        try {
-            const response = await fetch('YOUR_BACKEND_ENDPOINT', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    token: googleUser.getAuthResponse().id_token,
-                    name: profile.getName(),
-                    email: profile.getEmail(),
-                }),
-            });
+    useEffect(() => {
+        const handleCredentialResponse = (response: any) => {
+            console.log("Encoded JWT ID token: " + response.credential);
+            const decodedToken = JSON.parse(atob(response.credential.split('.')[1])); 
+            console.log('Decoded Token:', decodedToken);
 
-            const data: BackendResponse = await response.json();
-            console.log('Server response:', data);
-        } catch (error) {
-            console.error('Error posting user data', error);
-        }
-    };
+            verifyToken(response.credential);
+        };
 
-    React.useEffect(() => {
-        (window as any).gapi.signin2.render('g-signin2', {
-            'scope': 'profile email',
-            'width': 240,
-            'height': 50,
-            'longtitle': true,
-            'theme': 'dark',
-            'onsuccess': handleLogin,
-            'onfailure': (error: any) => console.log('Failed to login', error)
-        });
+        const verifyToken = async (token: string) => {
+            try {
+                const response = await fetch('/api/verify-token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    const { name } = data;
+                    setUserName(name);
+                } else {
+                    console.error('Error verifying token:', response.statusText);
+                    
+                }
+            } catch (error) {
+                console.error('Error verifying token:');
+                
+            }
+        };
+
+        // Initialize the Google Identity Services library
+        window.onload = () => {
+            if (typeof google !== 'undefined') {
+                google.accounts.id.initialize({
+                    client_id: import.meta.env.VITE_CLIENT_ID,
+                    callback: handleCredentialResponse
+                });
+
+                google.accounts.id.renderButton(
+                    document.getElementById("g-signin2"), // Ensure this element exists
+                    { theme: "outline", size: "large" }  // Customization attributes
+                );
+
+                google.accounts.id.prompt(); // Display the One Tap prompt
+            }
+        };
     }, []);
 
-    const handleSignInClick = () => {
-        (window as any).gapi.auth2.getAuthInstance().signIn().then((googleUser: GoogleUser) => {
-            handleLogin(googleUser);
-        }, (error: any) => {
-            console.log('Login failed', error);
-        });
-    };
-    
     return (
         <div className="login-wrapper">
             <div className="login-container">
                 <p>Login</p>
-                <div id="g-signin2" style={{ display: 'none' }}></div>
-                <button className="custom-google-btn" onClick={handleSignInClick}>
-                    Sign in with Google
-                </button>
+                {userName && <div>Welcome, {userName}</div>}
+                <div id="g-signin2"></div>
             </div>
         </div>
     );
