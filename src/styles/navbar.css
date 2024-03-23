@@ -93,3 +93,26 @@
   color: var(--dark-green);
   font-weight: 600;
 }
+
+@media screen and (max-width: 1425px) {
+}
+
+@media screen and (max-width: 1051px) {
+}
+
+@media screen and (max-width: 431px) {
+  .nav-logo {
+    width: 10rem;
+  }
+
+  .burger {
+    transform: scale(1);
+  }
+
+  .nav-bar {
+    padding: 0.75rem 0rem;
+  }
+}
+
+@media screen and (max-width: 391px) {
+}
