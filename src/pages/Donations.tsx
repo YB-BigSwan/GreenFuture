@@ -5,7 +5,7 @@ function Donations() {
     <div className="about-container">
       <div className="header-container">
         <div className="header-content">
-          <h1 className="page-title">About the Community</h1>
+          <h1 className="page-title">Donations</h1>
           <p className="community-description">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis
             impedit aliquam est incidunt assumenda enim quos et veritatis, fuga
