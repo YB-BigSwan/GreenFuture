@@ -15,6 +15,8 @@ import NavBar from "./components/NavBar";
 import EventInfo from "./pages/EventInfo";
 import WorkshopInfo from "./pages/WorkshopInfo";
 import VolunteerInfo from "./pages/VolunteerInfo";
+import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 
 import "./App.css";
 
@@ -42,7 +44,9 @@ function App() {
             <Route path="/workshops" element={<Workshops />} />
             <Route path="/event/:id" element={<EventInfo />} />
             <Route path="/volunteer/:id" element={<VolunteerInfo />} />
-            <Route path="/workshop/:id" element={<WorkshopInfo />} />  
+            <Route path="/workshop/:id" element={<WorkshopInfo />} />
+            <Route path="/login" element={<Login />} /> 
+            <Route path="/logout" element={<Logout />} />   
           </Routes>
         </div>
       </Router>
