@@ -11,16 +11,17 @@ import UniversityPartners from "./pages/UniversityPartners";
 import Videos from "./pages/Videos";
 import Volunteer from "./pages/Volunteer";
 import Workshops from "./pages/Worshops";
-import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import EventInfo from "./pages/EventInfo";
+import WorkshopInfo from "./pages/WorkshopInfo";
+import VolunteerInfo from "./pages/VolunteerInfo";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Router basename="/GreenFuture/">
+      <Router basename="/GreenFuture">
         <div>
           <NavBar />
           <Routes>
@@ -39,9 +40,10 @@ function App() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/workshops" element={<Workshops />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/event/:id" element={<EventInfo />} />
+            <Route path="/volunteer/:id" element={<VolunteerInfo />} />
+            <Route path="/workshop/:id" element={<WorkshopInfo />} />  
           </Routes>
-          <Footer />
         </div>
       </Router>
     </>
