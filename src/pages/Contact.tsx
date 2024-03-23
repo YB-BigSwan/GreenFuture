@@ -48,10 +48,10 @@ function Contact() {
   return (
     <div className="contact-wrapper">
       <div className="contact-container">
-        <div className="header-container">
-          <div className="header-content">
+        <div className="contact-header-container">
+          <div className="contact-header-content">
             <h1 className="page-title">Contact Us</h1>
-            <p className="community-description">
+            <p className="contact-description">
               Do you want to become an organizer, partner, or work with us in
               some other way? Please contact us by filling the form below and
               our team will get back to you as soon as possible!
