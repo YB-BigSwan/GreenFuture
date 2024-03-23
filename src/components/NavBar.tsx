@@ -8,23 +8,35 @@ import "../styles/navbar.css";
 type Anchor = "right";
 
 const NavBar = () => {
-  // Creating a basic isOpen type state did not use isOpen because the MUI drawer component was being finicky
   const [state, setState] = useState({
     right: false,
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state to track if user is logged in
 
-  let prevScrollpos = window.scrollY;
-  window.onscroll = () => {
-    const currentScrollpos = window.scrollY;
-    if (prevScrollpos > currentScrollpos) {
-      // @ts-expect-error possible null
-      document.getElementById("nav-wrapper").style.top = "0";
-    } else {
-      // @ts-expect-error possible null
-      document.getElementById("nav-wrapper").style.top = "-10rem";
-    }
-    prevScrollpos = currentScrollpos;
-  };
+  useEffect(() => {
+    // Check local storage for user info (or token) on component mount
+    const userInfo = localStorage.getItem('userInfo');
+    setIsLoggedIn(!!userInfo); // Set isLoggedIn based on whether userInfo exists
+  }, []);
+
+  useEffect(() => {
+    let prevScrollpos = window.scrollY;
+    const handleScroll = () => {
+        const currentScrollpos = window.scrollY;
+        const navWrapper = document.getElementById("nav-wrapper");
+        if (navWrapper) {
+            if (prevScrollpos > currentScrollpos) {
+                navWrapper.style.top = "0";
+            } else {
+                navWrapper.style.top = "-10rem";
+            }
+        }
+        prevScrollpos = currentScrollpos;
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   // MUI drawer does not natively support onClickAway or onClickOutside so we have to create our own logic
   const drawerRef = useRef(null);
@@ -190,14 +202,22 @@ const NavBar = () => {
           Donations
         </NavLink>
 
-        <NavLink
-          to="/login"
-          className="login-link"
-          // @ts-expect-error activeClassName
-          activeClassName="active"
-        >
-          Log-In
-        </NavLink>
+        {isLoggedIn ? (
+          <NavLink
+            to="/logout" // Change this to your logout route
+            className="login-link"
+            onClick={() => {
+              localStorage.removeItem('userInfo'); // Remove user info from local storage on logout
+              setIsLoggedIn(false); // Update login state
+            }}
+          >
+            Log-Out
+          </NavLink>
+        ) : (
+          <NavLink to="/login" className="login-link">
+            Log-In
+          </NavLink>
+        )}
       </div>
     </Box>
   );
