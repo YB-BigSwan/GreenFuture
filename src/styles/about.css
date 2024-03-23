@@ -9,12 +9,12 @@
 
 .header-container {
   width: 100%;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--light-green);
+  background-color: var(--dark-green) !important;
+  color: var(--white) !important;
 }
 
 .header-content {
@@ -22,6 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 5rem;
 }
 
 .page-title {
@@ -42,7 +43,7 @@
   aspect-ratio: 3/1;
   object-fit: cover;
   position: absolute;
-  top: 43%;
+  top: 47% !important;
   left: 50%;
   transform: translate(-50%, -50%);
 }
