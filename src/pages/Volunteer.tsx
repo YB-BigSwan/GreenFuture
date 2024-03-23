@@ -5,8 +5,6 @@ import { Grid, Button, TextField, Stack } from '@mui/material';
 import ArrowForward from "../assets/arrow_forward.svg";
 import "../styles/events.css";
 
-
-
 interface Volunteer {
   id: string;
   img_url: string;
@@ -34,7 +32,12 @@ function Events(): JSX.Element {
         throw new Error("Failed to fetch events");
       }
       const data = await response.json();
-      setVolunteers(data);
+      const formattedData = data.map((volunteer: Volunteer) => ({
+        ...volunteer,
+        date: new Date(volunteer.date).toISOString().split('T')[0],
+        time: new Date(volunteer.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })
+      }));
+      setVolunteers(formattedData);
     } catch (error: any) {
       console.error("Error fetching events:", error.message);
     }
