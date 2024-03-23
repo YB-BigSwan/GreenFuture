@@ -2,11 +2,7 @@ const ContentSection = () => {
   return (
     <div className="content-section-wrapper">
       <div className="content-section-container">
-        <img
-          src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="ocean trash"
-          className="content-section-img"
-        />
+        <div className="content-section-img"></div>
         <p className="content-section-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
           dolore aliquid quod earum in, nesciunt sunt amet magnam consectetur
