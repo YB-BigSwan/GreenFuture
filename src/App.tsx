@@ -12,6 +12,7 @@ import Videos from "./pages/Videos";
 import Volunteer from "./pages/Volunteer";
 import Workshops from "./pages/Worshops";
 import NavBar from "./components/NavBar";
+import EventInfo from "./pages/EventInfo";
 
 import "./App.css";
 
@@ -37,6 +38,9 @@ function App() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/workshops" element={<Workshops />} />
+            <Route path="/event/:id" element={<EventInfo />} />
+            <Route path="/volunteer/:id" element={<EventInfo />} />
+
           </Routes>
         </div>
       </Router>
