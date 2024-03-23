@@ -33,7 +33,12 @@ function Events(): JSX.Element {
         throw new Error("Failed to fetch events");
       }
       const data = await response.json();
-      setWorkshops(data);
+      const formattedData = data.map((workshop: Workshops) => ({
+        ...workshop,
+        date: new Date(workshop.date).toISOString().split('T')[0],
+        time: new Date(workshop.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })
+      }));
+      setWorkshops(formattedData);
     } catch (error: any) {
       console.error("Error fetching events:", error.message);
     }

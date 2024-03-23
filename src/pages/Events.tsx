@@ -33,7 +33,11 @@ function Events(): JSX.Element {
         throw new Error("Failed to fetch events");
       }
       const data = await response.json();
-      setEvents(data);
+      const formattedData = data.map((event: Event) => ({
+        ...event,
+        date: new Date(event.date).toISOString().split('T')[0]
+      }));
+      setEvents(formattedData);
     } catch (error: any) {
       console.error("Error fetching events:", error.message);
     }
