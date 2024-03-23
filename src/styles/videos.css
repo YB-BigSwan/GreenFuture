@@ -1,0 +1,25 @@
+/* videos.css */
+.videos-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .video-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  .video-description {
+    text-align: center;
+  }
+  
+  .video-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .video-description p {
+    font-size: 1rem;
+  }
+  
