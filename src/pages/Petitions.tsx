@@ -140,7 +140,7 @@ function Petitions() {
             </p>
           </div>
           <a href="" className="petition-link">
-            VOTE{" "}
+            VOTE
             <img
               src={ArrowForward}
               alt="arrow forward"
