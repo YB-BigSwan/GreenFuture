@@ -31,7 +31,6 @@ interface Workshop {
           const data = await response.json();
           data.date = new Date(data.date).toISOString().split('T')[0],
           data.time = new Date(data.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
-
           setEventDataItem(data);
         } catch (error) {
           console.error("Error fetching event:", error);
