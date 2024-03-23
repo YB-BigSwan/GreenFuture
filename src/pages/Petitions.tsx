@@ -1,58 +1,43 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import ArrowForward from "../assets/arrow_forward.svg";
 import "../styles/petitions.css";
 
+interface Petition {
+  img_url: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
 function Petitions() {
-  const petitionData = [
-    {
-      imgUrl:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title",
-      description:
-        "I will just write this here for now. The vote link could just link to a change.org pertition. Then we dont need to handle voter authentication. Consequatur voluptatem culpa obcaecati ad enim harum aspernatur accusantium voluptate pariatur, magni ab nobis libero facilis dolores. Quos qui quidem quisquam cupiditate magni earum est! Et, enim obcaecati?",
-      link: "https://www.change.org/p/let-s-reduce-the-effect-of-climatic-change-we-can-go-green-by-planting-economic-trees?source_location=petitions_browse",
-    },
-    {
-      imgUrl:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title",
-      description:
-        "I will just write this here for now. The vote link could just link to a change.org pertition. Then we dont need to handle voter authentication. Consequatur voluptatem culpa obcaecati ad enim harum aspernatur accusantium voluptate pariatur, magni ab nobis libero facilis dolores. Quos qui quidem quisquam cupiditate magni earum est! Et, enim obcaecati?",
-      link: "https://www.change.org/p/let-s-reduce-the-effect-of-climatic-change-we-can-go-green-by-planting-economic-trees?source_location=petitions_browse",
-    },
-    {
-      imgUrl:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title",
-      description:
-        "I will just write this here for now. The vote link could just link to a change.org pertition. Then we dont need to handle voter authentication. Consequatur voluptatem culpa obcaecati ad enim harum aspernatur accusantium voluptate pariatur, magni ab nobis libero facilis dolores. Quos qui quidem quisquam cupiditate magni earum est! Et, enim obcaecati?",
-      link: "https://www.change.org/p/let-s-reduce-the-effect-of-climatic-change-we-can-go-green-by-planting-economic-trees?source_location=petitions_browse",
-    },
-    {
-      imgUrl:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title",
-      description:
-        "I will just write this here for now. The vote link could just link to a change.org pertition. Then we dont need to handle voter authentication. Consequatur voluptatem culpa obcaecati ad enim harum aspernatur accusantium voluptate pariatur, magni ab nobis libero facilis dolores. Quos qui quidem quisquam cupiditate magni earum est! Et, enim obcaecati?",
-      link: "https://www.change.org/p/let-s-reduce-the-effect-of-climatic-change-we-can-go-green-by-planting-economic-trees?source_location=petitions_browse",
-    },
-    {
-      imgUrl:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title",
-      description:
-        "I will just write this here for now. The vote link could just link to a change.org pertition. Then we dont need to handle voter authentication. Consequatur voluptatem culpa obcaecati ad enim harum aspernatur accusantium voluptate pariatur, magni ab nobis libero facilis dolores. Quos qui quidem quisquam cupiditate magni earum est! Et, enim obcaecati?",
-      link: "https://www.change.org/p/let-s-reduce-the-effect-of-climatic-change-we-can-go-green-by-planting-economic-trees?source_location=petitions_browse",
-    },
-  ];
+  const [petitions, setPetitions] = useState<Petition[]>([]);
+
+  useEffect(() => {
+    fetchPetitions();
+  }, []);
+
+  const fetchPetitions = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/petition");
+      if (!response.ok) {
+        throw new Error("Failed to fetch petitions");
+      }
+      const data = await response.json();
+      setPetitions(data);
+    } catch (error: any) {
+      console.error("Error fetching petitions:", error.message);
+    }
+  };
 
   return (
     <div className="petitions-wrapper">
       <div className="petitions-container">
         <h1 className="page-title">Petitions</h1>
-        {petitionData.map((petition, index) => (
+        {petitions.map((petition, index) => (
           <div className="petition-card" key={index}>
             <img
-              src={petition.imgUrl}
+              src={petition.img_url}
               alt="petition thumbnsil image"
               className="petition-card-img"
             />
