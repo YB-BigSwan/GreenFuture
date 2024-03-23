@@ -17,7 +17,7 @@ import WorkshopInfo from "./pages/WorkshopInfo";
 import VolunteerInfo from "./pages/VolunteerInfo";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -45,9 +45,10 @@ function App() {
             <Route path="/event/:id" element={<EventInfo />} />
             <Route path="/volunteer/:id" element={<VolunteerInfo />} />
             <Route path="/workshop/:id" element={<WorkshopInfo />} />
-            <Route path="/login" element={<Login />} /> 
-            <Route path="/logout" element={<Logout />} />   
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </>
