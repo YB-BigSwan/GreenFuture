@@ -28,6 +28,7 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           DB_SERVER: ${{ secrets.DB_SERVER }}
           DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          VITE_CLIENT_ID: ${{ secrets.VITE_CLIENT_ID }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
