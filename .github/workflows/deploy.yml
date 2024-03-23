@@ -18,12 +18,16 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install --force
 
       - name: Build project
         run: npm run build
         env:
           VITE_FORM_KEY: ${{ secrets.VITE_FORM_KEY }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_SERVER: ${{ secrets.DB_SERVER }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
