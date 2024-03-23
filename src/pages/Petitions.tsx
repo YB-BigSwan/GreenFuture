@@ -62,7 +62,12 @@ function Petitions() {
                 {petition.description}
               </p>
             </div>
-            <a href={petition.link} className="petition-link">
+            <a
+              href={petition.link}
+              className="petition-link"
+              target="_blank"
+              rel="noreferrer"
+            >
               VOTE{" "}
               <img
                 src={ArrowForward}
