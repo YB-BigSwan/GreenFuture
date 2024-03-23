@@ -1,25 +1,39 @@
 /* videos.css */
 .videos-container {
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   .video-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 20px;
+    max-width: 80%; /* Limit the width of the video wrapper to 80% of the screen */
+    margin-left: auto;
+    margin-right: auto; /* Center the video wrapper horizontally */
   }
   
-  .video-description {
-    text-align: center;
+  .highlight-card {
+    width: calc(25% - 20px); /* Set width for each card with margin */
+    margin-bottom: 20px;
+    margin-right: 20px; /* Add margin between each card */
   }
   
-  .video-description h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  .highlight-card:last-child {
+    margin-right: 0; /* Remove margin from the last card */
   }
   
-  .video-description p {
-    font-size: 1rem;
+  .card-media {
+    width: 100%;
+    height: auto;
   }
   
+  .card-content {
+    padding: 16px;
+  }
+    
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
