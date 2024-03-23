@@ -176,6 +176,15 @@ const NavBar = () => {
         >
           Donations
         </NavLink>
+
+        <NavLink
+          to="/login"
+          className="login-link"
+          // @ts-expect-error activeClassName
+          activeClassName="active"
+        >
+          Log-In
+        </NavLink>
       </div>
     </Box>
   );
