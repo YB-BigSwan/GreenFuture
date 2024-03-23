@@ -35,7 +35,7 @@ const AboutUs = () => {
             perferendis atque. Sit.
           </p>
         </div>
-        <div className="about-us-img"></div>
+        <div className="about-img"></div>
       </div>
     </div>
   );
