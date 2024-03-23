@@ -73,13 +73,22 @@
   margin: 0.2rem 0;
 }
 
-.nav-link:hover {
+.login-link {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.nav-link:hover,
+.login-link:hover {
   color: var(--dark-green);
   text-decoration: underline;
 }
 
 .nav-link.active,
-.home-link.active {
+.home-link.active,
+.login-link.active {
   color: var(--dark-green);
   font-weight: 600;
 }

@@ -11,6 +11,7 @@ import UniversityPartners from "./pages/UniversityPartners";
 import Videos from "./pages/Videos";
 import Volunteer from "./pages/Volunteer";
 import Workshops from "./pages/Worshops";
+import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/workshops" element={<Workshops />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
           <Footer />
         </div>
