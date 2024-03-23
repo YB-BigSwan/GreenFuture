@@ -15,7 +15,7 @@ import NavBar from "./components/NavBar";
 import EventInfo from "./pages/EventInfo";
 import WorkshopInfo from "./pages/WorkshopInfo";
 import VolunteerInfo from "./pages/VolunteerInfo";
-
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
             <Route path="/volunteer/:id" element={<VolunteerInfo />} />
             <Route path="/workshop/:id" element={<WorkshopInfo />} />  
           </Routes>
+          <Footer />
         </div>
       </Router>
     </>
