@@ -29,6 +29,7 @@ function EventInfo(): JSX.Element {
           throw new Error('Failed to fetch event');
         }
         const data = await response.json();
+        data.date = new Date(data.date).toISOString().split('T')[0];
         setEventDataItem(data);
       } catch (error) {
         console.error("Error fetching event:", error);
