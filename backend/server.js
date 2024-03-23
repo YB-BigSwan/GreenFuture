@@ -162,7 +162,7 @@ app.get('/api/event', async (req, res) => {
 app.get('/api/event/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const result = await sql.query`SELECT * FROM Events WHERE id = ${id}`;
+        const result = await sql.query`SELECT * FROM Event WHERE id = ${id}`;
         if (result.recordset.length > 0) {
             res.json(result.recordset[0]);
         } else {
@@ -174,13 +174,12 @@ app.get('/api/event/:id', async (req, res) => {
 });
 
 // Update an event by id
-app.put('/api/event/:id', async (req, res) => {
+app.get('/api/event/:id', async (req, res) => {
     try {
-        const { location_embed, title, description, date, time } = req.body;
         const id = req.params.id;
-        const result = await sql.query`UPDATE Events SET location_embed = ${location_embed}, title = ${title}, description = ${description}, date = ${date}, time = ${time} WHERE id = ${id}`;
-        if (result.rowsAffected[0] > 0) {
-            res.json({ message: "Event updated successfully." });
+        const result = await sql.query`SELECT * FROM Event WHERE id = ${id}`;
+        if (result.recordset.length > 0) {
+            res.json(result.recordset[0]);
         } else {
             res.status(404).send({ message: "Event not found." });
         }
@@ -193,7 +192,7 @@ app.put('/api/event/:id', async (req, res) => {
 app.delete('/api/event/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const result = await sql.query`DELETE FROM Events WHERE id = ${id}`;
+        const result = await sql.query`DELETE FROM Event WHERE id = ${id}`;
         if (result.rowsAffected[0] > 0) {
             res.json({ message: "Event deleted successfully." });
         } else {
@@ -238,6 +237,54 @@ app.delete('/api/petition/:id', async (req, res) => {
             res.json({ message: "Petition deleted successfully." });
         } else {
             res.status(404).send({ message: "Petition not found." });
+        }
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+});
+
+// Retrieve all petitions
+app.get('/api/workshop', async (req, res) => {
+    try {
+        const result = await sql.query`SELECT * FROM Workshop`;
+        res.json(result.recordset);
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+});
+
+app.get('/api/workshop/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const result = await sql.query`SELECT * FROM Workshop WHERE id = ${id}`;
+        if (result.recordset.length > 0) {
+            res.json(result.recordset[0]);
+        } else {
+            res.status(404).send({ message: "Event not found." });
+        }
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+});
+
+// Retrieve all petitions
+app.get('/api/volunteer', async (req, res) => {
+    try {
+        const result = await sql.query`SELECT * FROM Volunteer`;
+        res.json(result.recordset);
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+});
+
+app.get('/api/volunteer/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const result = await sql.query`SELECT * FROM Volunteer WHERE id = ${id}`;
+        if (result.recordset.length > 0) {
+            res.json(result.recordset[0]);
+        } else {
+            res.status(404).send({ message: "Event not found." });
         }
     } catch (err) {
         res.status(500).send({ message: err.message });

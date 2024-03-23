@@ -1,43 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { Grid, Button, TextField, Stack } from '@mui/material';
 import ArrowForward from "../assets/arrow_forward.svg";
 import "../styles/events.css";
 
-export const eventData = [
-  {
-    id: 1,
-    imgUrl:"https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Workshop 1",
-    description: "Something about the event",
-    date: "2024-03-22",
-    time: "17:00",
-    location: "Aleksanterikatu 1, Helsinki"
-  },
-  {
-    id:2,
-    imgUrl:"https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Workshop 2",
-    description: "Something about the event",
-    date: "2024-04-17",
-    time: "12:00",
-    location: "Rautatie 14, Helsinki"
-  },
-  {
-    id:3,
-    imgUrl:"https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Workshop 3",
-    description: "Something about the event",
-    date: "2024-05-20",
-    time: "13:30",
-    location: "Slomonkatu 22, Vantaa"
-  }
-]
+
+interface Workshops {
+  id: string;
+  imgUrl: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+}
 
 function Events(): JSX.Element {
   // State to manage the visibility of the form
   const [showForm, setShowForm] = useState<boolean>(false);
+
+  const [workshops, setWorkshops] = useState<Workshops[]>([]);
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/workshop");
+      if (!response.ok) {
+        throw new Error("Failed to fetch events");
+      }
+      const data = await response.json();
+      setWorkshops(data);
+    } catch (error: any) {
+      console.error("Error fetching events:", error.message);
+    }
+  };
+
   
   // Function to toggle the visibility of the form
   const toggleForm = () => {
@@ -62,23 +63,23 @@ function Events(): JSX.Element {
     <div className="events-wrapper">
       <div className="events-container">
         <h1 className="page-title">Workshops</h1>
-        {eventData.map((program) => (
-          <div className="event-card" key={program.id}>
+        {workshops.map((workshop) => (
+          <div className="event-card" key={workshop.id}>
             <img
-              src={program.imgUrl}
+              src={workshop.imgUrl}
               alt="a photo of garbage bins"
               className="event-card-img"
             />
             <div className="event-card-text">
-              <p className="event-card-title">{program.title}</p>
+              <p className="event-card-title">{workshop.title}</p>
               <p className="event-card-description">
-                {program.description}<br/>
-                {program.date}<br/>
-                {program.time}<br/>
-                {program.location}              
+                {workshop.description}<br/>
+                {workshop.date}<br/>
+                {workshop.time}<br/>
+                {workshop.location}              
               </p>       
             </div>
-            <Link to={`/workshop/${program.id}`} className="event-link">
+            <Link to={`/workshop/${workshop.id}`} className="event-link">
               More Info{" "}
               <img
                 src={ArrowForward}
