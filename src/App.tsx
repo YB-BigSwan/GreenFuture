@@ -19,7 +19,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Router basename="/GreenFuture">
+      <Router basename="/GreenFuture/">
         <div>
           <NavBar />
           <Routes>
