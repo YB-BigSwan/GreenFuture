@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 1.5rem;
+  margin-top: 5rem;
 }
 
 .page-title {
@@ -79,4 +80,42 @@
   background-color: var(--light-green);
   color: var(--black);
   transition: 0.3s ease;
+}
+
+@media screen and (max-width: 1425px) {
+  .petition-card-img {
+    padding: 1rem 0rem 1rem 1rem;
+  }
+}
+
+@media screen and (max-width: 1051px) {
+  .petition-link {
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 431px) {
+  .petition-card {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+  .petition-card-title {
+    font-size: 1.3rem;
+  }
+
+  .petition-link {
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+
+  .petition-card-img {
+    margin-left: 1rem;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 391px) {
 }
