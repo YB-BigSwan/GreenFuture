@@ -1,17 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { Formik, Form} from 'formik';
 import { Grid, Button, TextField, Stack } from '@mui/material';
-import { eventData} from './Volunteer';
+
 import "../styles/events.css";
 
-function EventInfo(): JSX.Element {
-  const [showForm, setShowForm] = useState<boolean>(false);
-
-  const { id } = useParams<{id: string}>();
-  const eventId: number| undefined = id ? parseInt(id, 10): undefined;
-  const eventDataItem = eventId ? eventData.find((item) => item.id === eventId) : undefined;
-
+interface Volunteer {
+    id: string;
+    img_url: string;
+    title: string;
+    description: string;
+    date: string;
+    time: string;
+    location: string;
+  }
+  
+  function EventInfo(): JSX.Element {
+    const [showForm, setShowForm] = useState<boolean>(false);
+    const [eventDataItem, setEventDataItem] = useState<Volunteer | null>(null);
+  
+    const { id } = useParams<{id: string}>();
+  
+    useEffect(() => {
+      const fetchEvent = async () => {
+        try {
+          const response = await fetch(`http://localhost:3001/api/volunteer/${id}`);
+          if (!response.ok) {
+            throw new Error('Failed to fetch event');
+          }
+          const data = await response.json();
+          setEventDataItem(data);
+        } catch (error) {
+          console.error("Error fetching event:", error);
+        }
+      };
+  
+      fetchEvent();
+    }, [id]);
   const toggleForm = () => {
     setShowForm(!showForm);
   }
@@ -33,7 +58,7 @@ function EventInfo(): JSX.Element {
 
             <div className="event-card">
             <img
-                src={eventDataItem?.imgUrl}
+                src={eventDataItem?.img_url}
                 alt="Event"
                 className="event-card-img"
             />
