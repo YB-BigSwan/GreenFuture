@@ -9,12 +9,11 @@ function UniversityPartners() {
             <div className="header-content">
               <h1 className="page-title">University Partners</h1>
               <p className="community-description">
-                At GreenFuture, we partner with universities to endorse courses
-                that help students obtain education about sustainability. Lorem,
-                ipsum dolor sit amet consectetur adipisicing elit. At quos
-                labore cum possimus porro exercitationem, soluta, laboriosam
-                error saepe pariatur, eaque aliquam quasi ut corrupti
-                repudiandae! Quibusdam commodi veniam ex?
+                GreenFuture partners with leading universities to bring you
+                curated courses that accelerate your journey toward a
+                sustainable future. Expand your knowledge, earn recognized
+                credits (ECTS), and build the skills needed to drive positive
+                change.
               </p>
             </div>
           </div>

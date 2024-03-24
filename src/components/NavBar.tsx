@@ -15,28 +15,28 @@ const NavBar = () => {
 
   useEffect(() => {
     // Check local storage for user info (or token) on component mount
-    const userInfo = localStorage.getItem('userInfo');
+    const userInfo = localStorage.getItem("userInfo");
     setIsLoggedIn(!!userInfo); // Set isLoggedIn based on whether userInfo exists
   }, []);
 
   useEffect(() => {
     let prevScrollpos = window.scrollY;
     const handleScroll = () => {
-        const currentScrollpos = window.scrollY;
-        const navWrapper = document.getElementById("nav-wrapper");
-        if (navWrapper) {
-            if (prevScrollpos > currentScrollpos) {
-                navWrapper.style.top = "0";
-            } else {
-                navWrapper.style.top = "-10rem";
-            }
+      const currentScrollpos = window.scrollY;
+      const navWrapper = document.getElementById("nav-wrapper");
+      if (navWrapper) {
+        if (prevScrollpos > currentScrollpos) {
+          navWrapper.style.top = "0";
+        } else {
+          navWrapper.style.top = "-10rem";
         }
-        prevScrollpos = currentScrollpos;
+      }
+      prevScrollpos = currentScrollpos;
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
-}, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // MUI drawer does not natively support onClickAway or onClickOutside so we have to create our own logic
   const drawerRef = useRef(null);
@@ -116,7 +116,7 @@ const NavBar = () => {
           // @ts-expect-error activeClassName
           activeClassName="active"
         >
-          Events
+          Challenges
         </NavLink>
 
         <NavLink
@@ -134,7 +134,7 @@ const NavBar = () => {
           // @ts-expect-error activeClassName
           activeClassName="active"
         >
-          Volunteer
+          Quests
         </NavLink>
 
         <NavLink
@@ -207,7 +207,7 @@ const NavBar = () => {
             to="/logout" // Change this to your logout route
             className="login-link"
             onClick={() => {
-              localStorage.removeItem('userInfo'); // Remove user info from local storage on logout
+              localStorage.removeItem("userInfo"); // Remove user info from local storage on logout
               setIsLoggedIn(false); // Update login state
             }}
           >

@@ -7,10 +7,11 @@ function About() {
         <div className="header-content">
           <h1 className="page-title">About the Community</h1>
           <p className="community-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis
-            impedit aliquam est incidunt assumenda enim quos et veritatis, fuga
-            ex officia reprehenderit esse, nihil aliquid dolore sapiente quae
-            deleniti pariatur.
+            GreenFuture was inspired by Aalto University to create GreenFuture
+            to enable Education for Sustainable Development (ESD) and Global
+            Citizenship Education (GCED).
+            <br />
+            <br />
           </p>
         </div>
       </div>
@@ -22,35 +23,23 @@ function About() {
 
       <div className="main-content">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde
-          alias vitae reprehenderit exercitationem, cumque, fugiat non dolor
-          soluta adipisci eos laudantium blanditiis laboriosam eveniet
-          recusandae distinctio rerum, esse amet. Maxime aperiam fugit atque
-          facere recusandae itaque dolores quidem similique obcaecati
-          exercitationem saepe magni tenetur, dolore veniam est eligendi quod
-          odit esse nam distinctio ipsa. Unde quidem error numquam fugit?
+          Aalto University is an institution in Finland, renowned for its
+          multidisciplinary approach to education, research, and innovations.
+          The University actively works towards achieving the United Nations
+          Sustainable Development Goals (SDGs), through research across various
+          disciplines. Aalto University contributes to addressing global
+          challenges such as climate change, inequality, and education for
+          sustainable development, making a tangible impact globally.
           <br />
           <br />
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde quas
-          repellat illo, nostrum, ex, saepe totam at voluptas perspiciatis
-          aliquam rem aut ab sunt ullam odio. Laborum molestias libero tempora.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-          voluptatibus tenetur, laborum reprehenderit dicta hic officia
-          inventore quasi ipsam ea consequatur porro officiis autem. Laborum
-          facere amet in libero iusto!
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt
-          aspernatur ipsam odit magnam alias consequatur ut exercitationem,
-          cumque esse amet incidunt maxime praesentium perspiciatis suscipit
-          fugit a deleniti at. Nemo omnis aut veniam ullam deserunt at
-          voluptates veritatis. Distinctio doloremque fuga quibusdam amet.
-          Voluptate tempora quod laboriosam ad ullam vitae voluptates
-          blanditiis. Iste necessitatibus labore voluptates molestias, aperiam
-          tenetur. Modi exercitationem praesentium optio voluptates temporibus,
-          qui iure provident et ad assumenda ipsum ullam consequatur rerum
-          officiis officia perspiciatis eos eum sint possimus in odio facilis
-          vero consectetur quod. Qui.
+          Green Future is an innovative e-learning platform empowering
+          individuals to become champions of sustainability. We offer engaging
+          courses on climate action, environmental stewardship, and global
+          citizenship. Our mission is to make sustainability education
+          accessible and transformative for learners of all ages, driving
+          real-world impact. Through our freemium model, institutional
+          partnerships, and corporate training programs, we aim to build a
+          global community driving positive environmental change.
         </p>
       </div>
     </div>

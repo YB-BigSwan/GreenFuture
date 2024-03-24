@@ -80,6 +80,7 @@
 .highlight-card {
   width: 25rem !important;
   min-width: 25rem !important;
+  height: 20rem !important;
   border-radius: 10px !important;
 }
 
@@ -91,6 +92,13 @@
   justify-content: center;
   align-items: flex-start;
   text-align: start;
+}
+
+.card-img {
+  aspect-ratio: 2/1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .card-title {
