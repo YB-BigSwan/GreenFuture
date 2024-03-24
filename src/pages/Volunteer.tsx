@@ -28,7 +28,7 @@ function Events(): JSX.Element {
   const fetchEvents = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}volunteer`
+        import.meta.env.VITE_API_BASE_URL + "volunteer"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch events");
