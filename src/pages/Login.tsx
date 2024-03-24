@@ -14,7 +14,7 @@ const Login: React.FC = () => {
         // Verify the token from Google and update local storage and state accordingly
         const verifyToken = async (token: string) => {
             try {
-                const response = await fetch('http://localhost:3001/api/verify-token', {
+                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}verify-token`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -38,32 +38,31 @@ const Login: React.FC = () => {
             }
         };
 
-        // Setup Google Identity Services once the component loads
-        window.onload = () => {
+        // Initialize and render Google Identity Services sign-in button
+        const initGoogleSignIn = () => {
             if (typeof google !== 'undefined') {
                 google.accounts.id.initialize({
                     client_id: import.meta.env.VITE_CLIENT_ID,
                     callback: handleCredentialResponse
                 });
 
-                if (!userName) {
-                    google.accounts.id.renderButton(
-                        document.getElementById("g-signin2"),
-                        { theme: "outline", size: "large" }
-                    );
-                }
+                google.accounts.id.renderButton(
+                    document.getElementById("g-signin2"),
+                    { theme: "outline", size: "large" }
+                );
 
-                google.accounts.id.prompt(); // Display the One Tap prompt if user is not logged in
+                google.accounts.id.prompt(); // Always display the One Tap prompt
             }
         };
-    }, [userName]); // Dependency on userName so the effect runs when userName changes
 
+        initGoogleSignIn(); // Call this function when the component mounts
+    }, [userName]); 
     return (
         <div className="login-wrapper">
             <div className="login-container">
                 <p>Login</p>
+                <div id="g-signin2"></div> {/* This will now always display */}
                 {userName && <div>Welcome, {userName}</div>}
-                {!userName && <div id="g-signin2"></div>}
             </div>
         </div>
     );
