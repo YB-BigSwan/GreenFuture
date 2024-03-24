@@ -53,8 +53,8 @@ function Videos() {
   };
 
   return (
-    <div className="videos-container">
-      <div className="video-wrapper">
+    <div className="video-wrapper">
+      <div className="video-container">
         {videoData.map((video, index) => (
           <Card
             key={index}
@@ -72,9 +72,6 @@ function Videos() {
               />
               <CardContent className="card-content">
                 <Typography className="card-title">{video.title}</Typography>
-                <Typography className="card-description">
-                  {video.description}
-                </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
@@ -95,10 +92,10 @@ function Videos() {
             <CloseIcon />
           </IconButton>
           <DialogContent>
-            <div className="video-player">
+            <div className="videos-container">
               <YouTube
                 videoId={selectedVideo.split("v=")[1]}
-                className="video-container"
+                className="video-player"
               />
             </div>
           </DialogContent>
