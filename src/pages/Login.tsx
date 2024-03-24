@@ -56,8 +56,7 @@ const Login: React.FC = () => {
         };
 
         initGoogleSignIn(); // Call this function when the component mounts
-    }, [userName]); // Dependency on userName so the effect runs when userName changes
-
+    }, [userName]); 
     return (
         <div className="login-wrapper">
             <div className="login-container">
