@@ -28,14 +28,14 @@ function Events(): JSX.Element {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/event");
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}event`);
       if (!response.ok) {
         throw new Error("Failed to fetch events");
       }
       const data = await response.json();
       const formattedData = data.map((event: Event) => ({
         ...event,
-        date: new Date(event.date).toISOString().split('T')[0]
+        date: new Date(event.date).toISOString().split("T")[0],
       }));
       setEvents(formattedData);
     } catch (error: any) {
