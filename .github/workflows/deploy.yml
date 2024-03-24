@@ -24,11 +24,8 @@ jobs:
         run: npm run build
         env:
           VITE_FORM_KEY: ${{ secrets.VITE_FORM_KEY }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_SERVER: ${{ secrets.DB_SERVER }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
           VITE_CLIENT_ID: ${{ secrets.VITE_CLIENT_ID }}
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3

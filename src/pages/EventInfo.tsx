@@ -19,17 +19,19 @@ function EventInfo(): JSX.Element {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [eventDataItem, setEventDataItem] = useState<Event | null>(null);
 
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/event/${id}`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}event/${id}`
+        );
         if (!response.ok) {
-          throw new Error('Failed to fetch event');
+          throw new Error("Failed to fetch event");
         }
         const data = await response.json();
-        data.date = new Date(data.date).toISOString().split('T')[0];
+        data.date = new Date(data.date).toISOString().split("T")[0];
         setEventDataItem(data);
       } catch (error) {
         console.error("Error fetching event:", error);
@@ -38,7 +40,6 @@ function EventInfo(): JSX.Element {
 
     fetchEvent();
   }, [id]);
-
 
   const toggleForm = () => {
     setShowForm(!showForm);

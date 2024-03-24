@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import { Formik, Form } from 'formik';
-import { Grid, Button, TextField, Stack } from '@mui/material';
+import { Link } from "react-router-dom";
+import { Formik, Form } from "formik";
+import { Grid, Button, TextField, Stack } from "@mui/material";
 import ArrowForward from "../assets/arrow_forward.svg";
 import "../styles/events.css";
-
 
 interface Workshops {
   id: string;
@@ -28,15 +27,21 @@ function Events(): JSX.Element {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/workshop");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}workshop`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch events");
       }
       const data = await response.json();
       const formattedData = data.map((workshop: Workshops) => ({
         ...workshop,
-        date: new Date(workshop.date).toISOString().split('T')[0],
-        time: new Date(workshop.time).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })
+        date: new Date(workshop.date).toISOString().split("T")[0],
+        time: new Date(workshop.time).toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }),
       }));
       setWorkshops(formattedData);
     } catch (error: any) {
@@ -44,7 +49,6 @@ function Events(): JSX.Element {
     }
   };
 
-  
   // Function to toggle the visibility of the form
   const toggleForm = () => {
     setShowForm(!showForm);
@@ -52,16 +56,16 @@ function Events(): JSX.Element {
 
   // Initial form values
   const initialValues = {
-    title: '',
-    description:'',
-    date: '',
-    time: '',
-    location: '',
+    title: "",
+    description: "",
+    date: "",
+    time: "",
+    location: "",
   };
 
   const onSubmit = (values: any) => {
     console.log(values);
-    setShowForm(false); 
+    setShowForm(false);
   };
 
   return (
@@ -78,11 +82,14 @@ function Events(): JSX.Element {
             <div className="event-card-text">
               <p className="event-card-title">{workshop.title}</p>
               <p className="event-card-description">
-                {workshop.description}<br/>
-                {workshop.date}<br/>
-                {workshop.time}<br/>
-                {workshop.location}              
-              </p>       
+                {workshop.description}
+                <br />
+                {workshop.date}
+                <br />
+                {workshop.time}
+                <br />
+                {workshop.location}
+              </p>
             </div>
             <Link to={`/workshop/${workshop.id}`} className="event-link">
               More Info{" "}
@@ -91,7 +98,7 @@ function Events(): JSX.Element {
                 alt="arrow forward"
                 className="arrow-forward"
               />
-            </Link>  
+            </Link>
           </div>
         ))}
 
@@ -102,33 +109,62 @@ function Events(): JSX.Element {
         {showForm && (
           <div className="modal-overlay" onClick={toggleForm}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <Formik
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-              >
+              <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form id="add-event" className="event-form">
                   {/* Form fields */}
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
-                      <TextField name="title" placeholder='Title' label='Title' variant='outlined'/>
+                      <TextField
+                        name="title"
+                        placeholder="Title"
+                        label="Title"
+                        variant="outlined"
+                      />
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField name="Description" placeholder='Description' label='Description' variant='outlined'/>
+                      <TextField
+                        name="Description"
+                        placeholder="Description"
+                        label="Description"
+                        variant="outlined"
+                      />
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField name="date" placeholder='Date' label='Date' variant='outlined'/>
+                      <TextField
+                        name="date"
+                        placeholder="Date"
+                        label="Date"
+                        variant="outlined"
+                      />
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField name="time" placeholder='Time' label='Time' variant='outlined'/>
+                      <TextField
+                        name="time"
+                        placeholder="Time"
+                        label="Time"
+                        variant="outlined"
+                      />
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField name="location" placeholder='Location' label='Location' variant='outlined' />
+                      <TextField
+                        name="location"
+                        placeholder="Location"
+                        label="Location"
+                        variant="outlined"
+                      />
                     </Grid>
                   </Grid>
 
-                  <Stack spacing={2} direction='row' justifyContent='center' sx={{mt: 2}}>
-                    <Button variant='contained'>Submit</Button>
-                    <Button variant='contained' onClick={toggleForm}>Close</Button>
+                  <Stack
+                    spacing={2}
+                    direction="row"
+                    justifyContent="center"
+                    sx={{ mt: 2 }}
+                  >
+                    <Button variant="contained">Submit</Button>
+                    <Button variant="contained" onClick={toggleForm}>
+                      Close
+                    </Button>
                   </Stack>
                 </Form>
               </Formik>
