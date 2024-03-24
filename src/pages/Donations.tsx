@@ -7,10 +7,11 @@ function Donations() {
         <div className="header-content">
           <h1 className="page-title">Donations</h1>
           <p className="community-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis
-            impedit aliquam est incidunt assumenda enim quos et veritatis, fuga
-            ex officia reprehenderit esse, nihil aliquid dolore sapiente quae
-            deleniti pariatur.
+            Your donation is a a vote of confidence in the power of education to
+            create a more just and sustainable world. Help us empower students,
+            transform mindsets, and unlock the next generation of sustainability
+            leaders. Every contribution, no matter the size, makes a tangible
+            impact.
           </p>
         </div>
       </div>

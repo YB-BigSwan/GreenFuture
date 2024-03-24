@@ -65,7 +65,7 @@ function Events(): JSX.Element {
   return (
     <div className="events-wrapper">
       <div className="events-container">
-        <h1 className="page-title">Events</h1>
+        <h1 className="page-title">Challenges</h1>
         {events.map((event) => (
           <div className="event-card" key={event.id}>
             <img
