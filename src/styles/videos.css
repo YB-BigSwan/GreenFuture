@@ -1,26 +1,26 @@
 /* videos.css */
-.videos-container {
-  margin-top: 20px;
+.video-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-wrapper {
+.video-container {
+  width: 78%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  max-width: 80%; 
-  margin-left: auto;
-  margin-right: auto; /
+  gap: 2rem;
+  margin-top: 10rem;
 }
 
 .highlight-card {
-  width: calc(25% - 20px); 
-  margin-bottom: 20px;
-  margin-right: 20px; 
-}
-
-.highlight-card:last-child {
-  margin-right: 0; 
+  width: 20rem;
+  height: 24rem;
+  background-color: var(--light-green) !important;
 }
 
 .card-media {
@@ -29,21 +29,35 @@
 }
 
 .card-content {
-  padding: 16px;
+  padding: 1rem !important;
 }
 
 .video-player {
   position: relative;
-  padding-top: 43%;
-  padding-left: 100%;
-  
+  margin: 20rem !important;
 }
 
-.video-container {
+.videos-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 100%;
+  bottom: 5% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin-top: 0 !important;
+  height: 100% !important;
 }
 
+.css-rnmm7m-MuiPaper-root-MuiDialog-paper {
+  height: 30rem !important;
+  width: 50rem !important;
+}
+
+@media screen and (max-width: 1051px) {
+  .highlight-card {
+    width: 10rem !important;
+    height: 20rem !important;
+  }
+
+  .card-title {
+    font-size: 1rem !important;
+  }
+}
