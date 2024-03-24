@@ -9,16 +9,15 @@ function Partners() {
             <div className="header-content">
               <h1 className="page-title">Our Partners</h1>
               <p className="community-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Debitis impedit aliquam est incidunt assumenda enim quos et
-                veritatis, fuga ex officia reprehenderit esse, nihil aliquid
-                dolore sapiente quae deleniti pariatur.
+                At GreenFuture we are always looking to expand our network and
+                explore new opportunities for collaboration. Contact us to learn
+                more about how we can work together to achieve mutual success.
               </p>
             </div>
           </div>
           <img
-            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="people standing together"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk26TyHZWTAtjIxMDeNXPl_dVfnSgRWzz1vQ&usqp=CAU"
+            alt="people shaking hands"
             className="about-us-img"
           />
 

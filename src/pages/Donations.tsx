@@ -16,8 +16,8 @@ function Donations() {
         </div>
       </div>
       <img
-        src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="people standing together"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxyvcaMKb4rH4WcI1qIYEZeWb_H5H_VSBS8Q&usqp=CAU"
+        alt="donation graphic"
         className="about-us-img"
       />
 

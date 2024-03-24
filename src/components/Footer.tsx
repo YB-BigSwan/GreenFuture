@@ -10,6 +10,9 @@ const Footer = () => {
             <li className="footer-list-item">Learning Management</li>
             <li className="footer-list-item">Gamification Tools</li>
             <li className="footer-list-item">Deed Badges</li>
+            <li className="footer-list-item">
+              <br />
+            </li>
           </ul>
         </div>
 
