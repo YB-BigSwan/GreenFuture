@@ -19,7 +19,7 @@
 
 .highlight-card {
   width: 20rem;
-  height: 24rem;
+  height: 24rem !important;
   background-color: var(--light-green) !important;
 }
 
