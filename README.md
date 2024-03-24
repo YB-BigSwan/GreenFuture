@@ -31,7 +31,14 @@ export default {
 
 # GreenFuture Documentation
 ## Overview
-GreenFuture is a web application focused on promoting sustainability through education and community action. The project uses React, TypeScript, Vite, and Express technologies.
+
+GreenFuture is an innovative web application dedicated to advancing sustainability through education and collective community engagement. You can access the project through this link: https://yb-bigswan.github.io/GreenFuture/.
+
+Utilizing technologies such as React, TypeScript, Vite, and Express, GreenFuture provides an interactive platform for users to learn about sustainability and take meaningful action within their communities.
+
+The application's database is hosted on the Azure platform, ensuring secure and reliable data storage and the backend is hosted on Heroku.
+
+Through GreenFuture, students can join hands in fostering a greener and more sustainable future for generations to come.
 
 ## Getting Started
 To start the project locally, ensure you have Node.js and npm installed. Clone the repository and install dependencies using npm install. Start the backend server using npm start inside the backend directory. In the root directory, start the frontend development server using npm run dev.
