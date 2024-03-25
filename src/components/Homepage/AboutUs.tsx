@@ -56,7 +56,7 @@ const AboutUs = () => {
             transparency and accountability. We will regularly review and
             disclose our ESG (Environmental, Social, and Governance)
             performance, invite feedback, and integrate lessons learned for
-            continuous improvement!
+            continuous improvement.
           </p>
         </div>
         <div className="about-img"></div>
